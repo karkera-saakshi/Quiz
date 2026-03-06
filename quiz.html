@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <style>
+        :root {
+            --primary: #d63384;
+            --primary-hover: #b92a6e;
+            --bg-gradient: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            --glass: rgba(255, 255, 255, 0.88);
+            --text-dark: #32262a;
+            --text-muted: #7d6a71;
+            --pink-glow: rgba(214, 51, 132, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #quiz-container {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px -12px var(--pink-glow);
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        h1 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        #playerbox {
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        #question {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        #options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 14px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .option-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--pink-glow);
+        }
+
+        .option-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #next-btn {
+            margin-top: 25px;
+            padding: 14px;
+            width: 100%;
+            border-radius: 16px;
+            border: none;
+            font-weight: 700;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #next-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--pink-glow);
+        }
+
+        #next-btn:disabled {
+            background: #d1d1d1;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        #score {
+            margin-top: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Quiz Application</h1>
+        <h3 id="playerbox">Player: </h3>
+        <div id="question">Loading question...</div>
+        <div id="options"></div>
+        <button id="next-btn" onclick="nextQuestion()">Next Question</button>
+        <div id="score">Score: 0</div>
+    </div>
+    <script src="./quiz.js"></script>
+</body>
+</html>
